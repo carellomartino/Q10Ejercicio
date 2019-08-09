@@ -71,14 +71,12 @@ function enviarListado(){
       data = data + '\n' + categoriasNombres[1] + ' -- ' + nombreProducto[i] + separator.slice(nombreProducto[i].toString().length, -1) + costoProducto[i]
     }
   }
-
-  ui.alert(data)
   var prompt = ui.prompt("Enviar Listado por e-mail", "Ingrese e-mail de destino", ui.ButtonSet.OK_CANCEL)
   var mail = prompt.getResponseText().toString();
   var button = prompt.getSelectedButton();
   
   if(button == ui.Button.OK){
-    MailApp.sendEmail(mail, "Lista de Productos", data)
+    GmailApp.sendEmail(mail, "Lista de Productos", data)
     ui.alert("Lista enviada!")
   }
 } 
