@@ -1,4 +1,4 @@
-/******* Ejercicio Q10 *******/ 
+/******* Ejercicio Q10 *******/
 
 /* Funcion para crear el menu y sus opciones */
 function onOpen() {
@@ -31,13 +31,14 @@ function getPrice(id) {
 
 /* Funcion Calcular costos */
 function calcularCostos(){
+  //Filtra por String para evitar celdas vacias
   var productsId = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Productos").getRange("A2:A").getValues().filter(String);
   var idProdMat = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Productos-Materiales").getRange("A2:A").getValues().filter(String);
   var idMat = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Productos-Materiales").getRange("B2:B").getValues().filter(String);
   var cantidad = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Productos-Materiales").getRange("C2:C").getValues().filter(String);
   var columnaCostos = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Productos").getRange("D2:D6");
   var arrPrices = []
-
+  
   for(var i = 0; i < productsId.length; i++){
     var precio = 0
     var arr = []
